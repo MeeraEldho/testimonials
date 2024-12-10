@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar Variations</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .nav-container {
+            margin-bottom: 40px;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 10px;
+        }
+
+        .nav1 {
+            border: 2px solid #d7d7d7;
+            background-color: #ffffff;
+            padding: 10px;
+        }
+
+        .nav1 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .nav1 li {
+            display: inline;
+        }
+
+        .nav1 a {
+            text-decoration: none;
+            color: #000000;
+            background-color: #ffffff;
+            padding: 5px 15px;
+            position: relative;
+        }
+
+        .nav1 a::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background-color: #a8c5de;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav1 a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav1 .login-btn {
+            background-color: #95d1f7;
+            color: #000000;
+            border-color: rgb(0, 0, 0);
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .nav2 {
+            background-color: #fff;
+            width: 200px;
+            padding: 20px;
+        }
+
+        .nav2 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav2 li {
+            margin-bottom: 12px;
+        }
+
+        .nav2 {
+            text-decoration: none;
+            color: #000000;
+            display: flex;
+            padding: 10px;
+            width: 15%;
+        }
+
+        .nav2 a:hover {
+            background-color: #c6c6c6;
+        }
+
+        .nav3 {
+            background-color: #fff;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .nav3 ul {
+            list-style-type: none;
+            padding: 0%;
+            margin: 0%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .nav3 a {
+            text-decoration: none;
+            color: #000000;
+            padding: 10px;
+            display: block;
+        }
+
+        .nav3 a:hover {
+            background-color: #caf1f1;
+        }
+
+        .nav3 .dropdown-content {
+            display: none;
+        }
+
+        .nav3 .dropdown:hover .dropdown-content {
+            display: block;
+            position: absolute;
+            background-color: #a4d2fb;
+            color: #000000;
+            min-width: 150px;
+        }
+
+        .nav3 .login-btn {
+            background-color: #64cbff;
+            color: #ffffff;
+            border-style: outset;
+            border-color: #000000;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .nav3 .login-btn:hover {
+            background-color: #b2bde9;
+            border: 1px solid whitesmoke;
+        }
+
+        .card-section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #fff;
+            color: #000;
+            width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        /* Neon Border Animation */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #47ff00, #00ffe1, #2b65ff, #aa00ff, #ff009d);
+            background-size: 300%;
+            z-index: -1;
+            filter: blur(10px);
+            animation: neonGlow 6s linear infinite;
+            opacity: 0.8;
+        }
+
+        .card:hover::before {
+            filter: blur(15px);
+            opacity: 1;
+        }
+
+        @keyframes neonGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+        }
+
+        .gallery img {
+            width: 30%;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-arrow {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 24px;
+            background-color: #95d1f7;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-arrow:hover {
+            background-color: #3498db;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 80px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Testimonials Section Styles */
+        .testimonials-section {
+            margin-top: 50px;
+            background-color: #2a2a2a;
+            padding: 40px 20px;
+            border-radius: 10px;
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .testimonials-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .testimonial {
+            background-color: #3a3a3a;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            flex: 1;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .testimonial .author {
+            font-weight: bold;
+            color: #95d1f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <h1>Variation 1: Horizontal with underline effect </h1>
+        <nav class="nav1">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Products</a></li>
+                <li><button class="login-btn">Login</button></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="nav-container">
+        <h2>Variation 2: Vertical with hover effect</h2>
+        <nav class="nav2">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><button class="login-btn">Login</button></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="nav-container">
+        <h3>Variation 3: Horizontal navigation bar with dropdown option</h3>
+        <nav class="nav3">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li class="dropdown"><a href="#">Products</a>
+                    <div class="dropdown-content">
+                        <a href="#">Product 1</a>
+                        <a href="#">Product 2</a>
+                        <a href="#">Product 3</a>
+                    </div>
+                </li>
+                <li><button class="login-btn">Login</button></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p>"This website is fantastic! I absolutely love the design."</p>
+                <p class="author">- John Doe</p>
+            </div>
+            <div class="testimonial">
+                <p>"The navigation is so smooth and easy to use. Great work!"</p>
+                <p class="author">- Jane Smith</p>
+            </div>
+            <div class="testimonial">
+                <p>"A very professional and sleek layout. Highly recommended."</p>
+                <p class="author">- Alex Johnson</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+    </div>
+</body>
+</html>
+
